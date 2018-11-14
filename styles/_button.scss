@@ -1,0 +1,23 @@
+.button {
+	-webkit-appearance: none;
+	appearance: none;
+	height: 27px;
+	border: none;
+	border-radius: 5px;
+	padding: 6px 20px;
+	color: #fff;
+	margin-bottom: 15px;
+	text-align: center;
+	background-size: 5px 8px;
+	background: #0070FF;
+
+	&:focus {
+		outline: none;
+		background-color: #394E6E;
+	}
+
+	&[disabled] {
+		cursor: default;
+		opacity: 0.7;
+	}
+}

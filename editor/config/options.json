@@ -1,0 +1,11 @@
+[
+	"spring",
+	"bounce",
+	"forceWithGravity",
+	"gravity",
+	"bezier",
+	"easeInOut",
+	"easeIn",
+	"easeOut",
+	"linear"
+]

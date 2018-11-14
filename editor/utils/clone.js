@@ -1,0 +1,1 @@
+export default data => data === undefined ? undefined : JSON.parse(JSON.stringify(data));

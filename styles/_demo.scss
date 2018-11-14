@@ -1,0 +1,45 @@
+.demo {
+	position: relative;
+	width: 580px;
+	height: 114px;
+	margin: 0 auto auto;
+}
+	.track {
+		position: absolute;
+		top: 50%;
+		left: 125px;
+		width: 350px;
+		height: 1px;
+		background: #e0effe;
+
+		&.tiny { width: 50px; }
+
+		.dot {
+			display: block;
+			position: absolute;
+			top: -5px;
+			left: auto;
+			width: 9px;
+			height: 9px;
+			border: 1px solid #e0effe;
+			border-radius: 5px;
+			background: white;
+
+			&:nth-child(1) { left: -5px; }
+			&:nth-child(2) { right: -5px; }
+		}
+
+		.index {
+			top: 24px;
+			left: -3px;
+			font-size: 10px;
+			color: #8096B1;
+			position: absolute;
+			user-select: none;
+
+			&:last-of-type {
+				left: auto;
+				right: -3px;
+			}
+		}
+	}
