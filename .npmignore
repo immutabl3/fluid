@@ -5,3 +5,10 @@ webpack.config.js
 build
 editor
 styles
+public
+.cache
+favicon.ico
+tasks.todo
+index.html
+gulpfile.js
+deploy.config.js
