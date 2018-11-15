@@ -14,6 +14,9 @@ module.exports = {
 		path: path.resolve(process.cwd(), 'dist'),
 		filename: 'fluid.min.js',
 	},
+	externals: [
+		'signal-js'
+	],
 	module: {
 		rules: [
 			{
