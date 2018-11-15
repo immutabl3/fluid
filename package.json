@@ -3,7 +3,7 @@
   "version": "1.0.3",
   "description": "A buttery-smooth animation library",
   "main": "./src/index.js",
-  "browser": "./dist/fluid.min.js",
+  "browser": "./dist/fluid.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --config deploy.config.js"
