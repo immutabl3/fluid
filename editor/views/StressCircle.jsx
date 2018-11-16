@@ -37,7 +37,7 @@ export default class StressCircle extends Component {
 
 	start = () => {
 		const { name, values } = this.props;
-		this.anim = fluid.animate(this.style, {
+		this.anim = fluid(this.style, {
 			x: endX(),
 			scale: 1,
 			opacity: 1,
@@ -48,7 +48,7 @@ export default class StressCircle extends Component {
 		})
 			.on('update', this.rerender)
 			.on('complete', () => {
-				this.anim = fluid.animate(this.style, {
+				this.anim = fluid(this.style, {
 					x: startX(),
 					opacity: 0.5,
 					scale: 0.5,
@@ -56,8 +56,10 @@ export default class StressCircle extends Component {
 					...values,
 				})
 					.on('update', this.rerender)
-					.on('complete', this.start);
-			});
+					.on('complete', this.start)
+					.start();
+			})
+			.start();
 	}
 
 	rerender = () => {

@@ -36,7 +36,7 @@ export default class Circle extends Component {
 	}
 
 	start() {
-		this.anim = fluid.animate(this.style, {
+		this.anim = fluid(this.style, {
 			scale: 1,
 			opacity: 1,
 		}, {
@@ -46,13 +46,15 @@ export default class Circle extends Component {
 		})
 			.on('update', this.rerender)
 			.on('complete', () => {
-				this.anim = fluid.animate(this.style, { x: 350 }, {
+				this.anim = fluid(this.style, { x: 350 }, {
 					...this.props.values,
 					delay: 250,
 				})
 					.on('update', this.rerender)
-					.on('complete', this.props.onCycle);
-			});
+					.on('complete', this.props.onCycle)
+					.start();
+			})
+			.start();
 	}
 
 	kill() {
@@ -62,7 +64,7 @@ export default class Circle extends Component {
 		this.anim && this.anim.stop();
 
 		const x = this.props.values.initialForce || this.anim.curve.returnsToSelf ? 0 : this.style.x;
-		this.anim = fluid.animate(this.style, {
+		this.anim = fluid(this.style, {
 			x,
 			opacity: 0,
 			scale: 0,
@@ -71,7 +73,8 @@ export default class Circle extends Component {
 			duration: 250,
 		})
 			.on('update', this.rerender)
-			.on('complete', () => this.props.onDeath(this.props.id));
+			.on('complete', () => this.props.onDeath(this.props.id))
+			.start();
 	}
 
 	render() {

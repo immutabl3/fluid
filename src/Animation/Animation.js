@@ -1,23 +1,30 @@
 // the crème de la crème...the memthods that make
 // the animation an animation
 
-import timeouts from '../timeouts';
+import timeouts, { addTimeout } from '../timeouts';
 import animations from '../animations';
 import timer from '../timer';
 import { apply } from '../properties';
 
 export default {
 	start() {
+		// already playing
 		if (this.playing) return this;
 		this.playing = true;
 
+		// already registered to play
 		const id = this.id;
+		if (timeouts.has(id)) return this;
 		if (animations.has(id)) return this;
+
+		// register the animation
+		const { delay } = this;
+		if (!delay) animations.set(id, this);
+		if (delay) addTimeout(id, () => animations.set(id, this), delay);
 
 		// wipe out the time to start from the begining
 		this.time = undefined;
-		// add ourselves to the animation queue
-		animations.set(id, this);
+		
 		return this;
 	},
 

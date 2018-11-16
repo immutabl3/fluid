@@ -61,8 +61,8 @@ const formatOptions = (from, to, config) => {
 		endProps: parse(to),
 		// this is the curve used to animate every tick
 		curve: types[type](config),
-		// by default, we're animating
-		playing: true,
+		// by default, we're not animating until "start"
+		playing: false,
 	};
 };
 

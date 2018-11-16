@@ -6,6 +6,9 @@
   "browser": "./dist/fluid.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "http-server ./ -p 1331",
+    "watch:css": "gulp watch",
+    "watch:js": "webpack",
     "build": "webpack --config deploy.config.js"
   },
   "repository": {
