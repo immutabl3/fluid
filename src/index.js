@@ -26,10 +26,7 @@ const callAnimations = function() {
 	for (const id of animations.keys()) {
 		const animation = animations.get(id);
 		const keep = animation.tick(timer.time);
-		if (!keep) {
-			animations.delete(id);
-			animation.free();
-		}
+		if (!keep) animations.delete(id);
 	}
 };
 

@@ -38,7 +38,7 @@ export default {
 		timeouts.has(id) && timeouts.delete(id);
 		animations.has(id) && animations.delete(id);
 		
-		return this.free();
+		return this;
 	},
 
 	// pause the animation so that it can be resumed

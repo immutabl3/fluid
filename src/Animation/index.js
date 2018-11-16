@@ -1,43 +1,9 @@
-// the pool of animations...creation and recreation of 
-// the animation objects and formatting of the configuration
-
 import signal from 'signal-js';
 import types from '../types';
 import { parse } from '../properties';
 import methods from './Animation';
 import uniqueId from '../utils/uniqueId';
 import debug from '../debug';
-
-const pool = [];
-
-const free = function() {
-	pool.push(this);
-	return this;
-};
-
-const reuse = (instance, config) => {
-	return Object.assign(
-		// clear the instance of events
-		instance.clear(),
-		// re-assign the configuration
-		config
-		// the methods and free already exist 
-		// on this object
-	);
-};
-
-const create = config => {
-	return Object.assign(
-		// create an emitter instance
-		signal(), 
-		// merge in the configuration
-		config,
-		// what makes the animation an animation
-		methods,
-		// the `free` method that allows for pooling
-		{ free }
-	);
-};
 
 const formatOptions = (from, to, config) => {
 	const id = config && config.id !== undefined ? config.id : uniqueId();
@@ -67,9 +33,12 @@ const formatOptions = (from, to, config) => {
 };
 
 export default function(from, to, options) {
-	const instance = pool.pop();
-	const config = formatOptions(from, to, options);
-	return instance ? 
-		reuse(instance, config) :
-		create(config);
+	return Object.assign(
+		// create an emitter instance
+		signal(), 
+		// merge in the configuration
+		formatOptions(from, to, options),
+		// what makes the animation an animation
+		methods,
+	);
 };
