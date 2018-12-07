@@ -1,26 +1,26 @@
 import React, { Component } from 'react';
 import signal from 'signal-js';
-import StressCircles from './StressCircles';
+import StressPoints from './StressPoints';
 import Button from './Button';
 
 const MIN = 0;
-const MAX = 100;
+const MAX = 1000;
 
 export default class Stress extends Component {
 	constructor() {
 		super();
 
 		this.state = {
-			qty: 20,	
+			qty: 500,	
 		};
 	}
 
 	dec = () => {
-		this.setState({ qty: this.state.qty - 10 });
+		this.setState({ qty: this.state.qty - 100 });
 	}
 
 	inc = () => {
-		this.setState({ qty: this.state.qty + 10 });
+		this.setState({ qty: this.state.qty + 100 });
 	}
 
 	render() {
@@ -44,7 +44,7 @@ export default class Stress extends Component {
 				>
 					+
 				</Button>
-				<StressCircles qty={ qty } />
+				<StressPoints qty={ qty } />
 			</div>
 		);
 	}
