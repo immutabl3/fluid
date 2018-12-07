@@ -49,7 +49,9 @@ export default Object.assign(main, types, {
 		timeouts.has(id) && timeouts.delete(id);
 	},
 
-	debug() {
-		console.log(`fluid: debug ${debug.toggle().slow === 3 ? 'enabled' : 'disabled'}`);
+	debug(scale) {
+		if (scale !== undefined && Number.isFinite(scale)) debug.scale = scale;
+
+		console.log(`fluid: debug ${debug.toggle().active ? 'enabled' : 'disabled'}`);
 	},
 });
