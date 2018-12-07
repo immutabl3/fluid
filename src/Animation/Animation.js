@@ -86,6 +86,7 @@ export default {
 	},
 
 	tick(time) {
+		if (this.time === undefined) this.emit('start');
 		const start = this.time === undefined ? (this.time = time) : this.time;
 		const tick = (time - start) / this.duration;
 		const y = this.curve(tick);
