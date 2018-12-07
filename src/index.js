@@ -31,8 +31,10 @@ const callAnimations = function() {
 };
 
 export default Object.assign(main, types, {
-	tick(delta = TICK_RATE) {
-		timer.time += delta;
+	tick(time) {
+		timer.time = time === undefined ?
+			timer.time + TICK_RATE :
+			time;
 		callTimeouts();
 		callAnimations();
 	},
