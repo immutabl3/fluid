@@ -167,6 +167,8 @@ requestAnimationFrame(loop);
 fluid.setTimeout(() => console.log('now'), 1000);
 ```
 
+`fluid` does not have any DOM dependencies. Feel free to use in node!
+
 ## License
 
 The MIT License (MIT)
