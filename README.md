@@ -118,6 +118,10 @@ Toggles on/off yoyoing. Takes a boolean as a parameter.
 
 Sets the number of times the animation should repeat. Takes a number as a parameter. Use `Infinity` for an infinite loop.
 
+#### *`state`*
+
+A function that returns the current state of the animation.
+
 #### *`debug`*
 
 Toggles debug mode to slow down animations. Takes a number (optional) to scale 

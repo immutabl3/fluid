@@ -85,6 +85,10 @@ export default {
 		return this;
 	},
 
+	state() {
+		return this[propsSymbol];
+	},
+
 	tick(time) {
 		if (this.time === undefined) this.emit('start');
 		const start = this.time === undefined ? (this.time = time) : this.time;
