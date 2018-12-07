@@ -9,9 +9,9 @@ export default class Canvas extends Component {
 		if (this.graph) return;
 
 		this.graph = new UIGraph(canvas);
-		this.graph.pointsChanged = () => signal.trigger('points', this.graph.points);
+		this.graph.pointsChanged = () => signal.emit('points', this.graph.points);
 		
-		signal.trigger('graph', this);
+		signal.emit('graph', this);
 	}
 
 	refresh = ({ name, values, points, editable }) => {

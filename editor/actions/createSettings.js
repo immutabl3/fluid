@@ -24,6 +24,16 @@ export default function createSettings(curve, points) {
 							property: key,
 						};
 					})
-		)
+		),
+		{
+			property: 'yoyo',
+			value: false,
+		},
+		{
+			property: 'repeat',
+			min: 0,
+			max: 10,
+			value: 0,
+		},
 	], 'property');
 };

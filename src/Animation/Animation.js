@@ -5,6 +5,12 @@ import timeouts, { addTimeout } from '../timeouts';
 import animations from '../animations';
 import timer from '../timer';
 import { apply } from '../properties';
+import {
+	repeatSymbol,
+	yoyoSymbol,
+	reversedSymbol,
+	propsSymbol,
+} from './symbols';
 
 export default {
 	start() {
@@ -69,6 +75,16 @@ export default {
 		return this.stop();
 	},
 
+	yoyo(bool) {
+		this[yoyoSymbol] = !!bool;
+		return this;
+	},
+	
+	repeat(times) {
+		this[repeatSymbol] = times || 0;
+		return this;
+	},
+
 	tick(time) {
 		const start = this.time === undefined ? (this.time = time) : this.time;
 		const tick = (time - start) / this.duration;
@@ -77,26 +93,45 @@ export default {
 
 		let properties;
 		if (done) {
-			properties = this.curve.returnsToSelf ?
-				this.startProps :
-				this.endProps;
-		} else {
+			// if we're yoyoing
+			if (this[yoyoSymbol]) {
+				// reverse the props
+				this[reversedSymbol] = !this[reversedSymbol];
+			}
+
+			// if we repeat
+			if (this[repeatSymbol] > 0) {
+				// reduce the number of repeats
+				if (Number.isFinite(this[repeatSymbol])) this[repeatSymbol] -= 1;
+				// add the time to the duration
+				this.time += this.duration;
+				// and return true to continue animating
+				return true;
+			}
+		}
+
+		if (!done) {
 			properties = {};
+			const reversed = this[reversedSymbol];
 			for (const key in this.startProps) {
-				const startInterpolable = this.startProps[key];
-				const endInterpolable = this.endProps[key];
+				const startInterpolable = reversed ? 
+					this.endProps[key] :
+					this.startProps[key];
+				const endInterpolable = reversed ?
+					this.startProps[key] :
+					this.endProps[key];
 				if (!startInterpolable || !endInterpolable) continue;
 				properties[key] = startInterpolable.interpolate(endInterpolable, y);
 			}
 		}
 
-		apply(this.props, properties);
+		apply(this[propsSymbol], properties);
 
-		this.emit('update', this.props);
+		this.emit('update', this[propsSymbol]);
 		
 		if (done) {
 			this.playing = false;
-			this.emit('complete', this.props);
+			this.emit('complete', this[propsSymbol]);
 		}
 
 		return !done;

@@ -39,10 +39,10 @@
 	}
 	.settings {
 		position: absolute;
-		top: 25px;
+		top: 0;
 		right: 0;
 		width: 205px;
-		height: calc(100% - 20px);
+		height: 100%;
 		overflow-y: auto;
 
 		select {
@@ -109,6 +109,18 @@
 					border-color: black;
 				}
 			}
+		}
+		.yoyo {
+			input { float: left; margin-right: 7px; }
+			label { float: none; }
+		}
+
+		&__extra {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+
+			.button { margin-bottom: 0; }
 		}
 	}
 }

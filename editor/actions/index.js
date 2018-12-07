@@ -83,6 +83,11 @@ export default function actions(store) {
 		graph = instance;
 		refreshGraph();
 	});
+	signal.on('yoyo', checked => {
+		store.set(['settings', 'yoyo', 'value'], checked);
+		store.set('values', generateValues(store.get(['settings'])));
+		restart();
+	});
 	signal.on('stress', () => {
 		store.set('stress', !store.get('stress'));
 	});
