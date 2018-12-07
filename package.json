@@ -13,13 +13,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/immutabl3/fluid.git"
+    "url": "git+https://github.com/JonKelley88/fluid"
   },
   "keywords": [],
   "author": "Immutable, LLC",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/immutabl3/fluid/issues"
+    "url": "https://jonkelley88.github.io/fluid/"
   },
   "homepage": "https://github.com/immutabl3/fluid#readme",
   "devDependencies": {
