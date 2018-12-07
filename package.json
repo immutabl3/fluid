@@ -1,6 +1,6 @@
 {
   "name": "@immutabl3/fluid",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "A buttery-smooth animation library",
   "main": "./src/index.js",
   "browser": "./dist/fluid.js",
