@@ -8,11 +8,15 @@ import Demo from './Demo';
 import Stress from './Stress';
 import { branch } from 'baobab-react/higher-order';
 
+import Header from './gh-pages/Header';
+import Main from './gh-pages/Main';
+
 const App = function({ stress }) {
 	if (stress) return <Stress />;
 	
 	return (
-		<>
+		<div className="app">
+			<Header />
 			<Editor>
 				<Graph>
 					<Canvas />
@@ -22,7 +26,8 @@ const App = function({ stress }) {
 				<Settings />
 			</Editor>
 			<Demo />
-		</>
+			<Main />
+		</div>
 	);
 };
 

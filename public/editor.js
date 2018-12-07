@@ -767,6 +767,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Stress__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./Stress */ "./editor/views/Stress.jsx");
 /* harmony import */ var baobab_react_higher_order__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! baobab-react/higher-order */ "./node_modules/baobab-react/higher-order.js");
 /* harmony import */ var baobab_react_higher_order__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(baobab_react_higher_order__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var _gh_pages_Header__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./gh-pages/Header */ "./editor/views/gh-pages/Header.jsx");
+/* harmony import */ var _gh_pages_Main__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./gh-pages/Main */ "./editor/views/gh-pages/Main.jsx");
+
+
 
 
 
@@ -780,11 +784,13 @@ __webpack_require__.r(__webpack_exports__);
 var App = function App(_ref) {
   var stress = _ref.stress;
   if (stress) return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Stress__WEBPACK_IMPORTED_MODULE_7__["default"], null);
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Editor__WEBPACK_IMPORTED_MODULE_1__["default"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Graph__WEBPACK_IMPORTED_MODULE_2__["default"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Canvas__WEBPACK_IMPORTED_MODULE_3__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Marker__WEBPACK_IMPORTED_MODULE_4__["default"], {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "app"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_gh_pages_Header__WEBPACK_IMPORTED_MODULE_9__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Editor__WEBPACK_IMPORTED_MODULE_1__["default"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Graph__WEBPACK_IMPORTED_MODULE_2__["default"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Canvas__WEBPACK_IMPORTED_MODULE_3__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Marker__WEBPACK_IMPORTED_MODULE_4__["default"], {
     value: 0
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Marker__WEBPACK_IMPORTED_MODULE_4__["default"], {
     value: 1
-  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Settings__WEBPACK_IMPORTED_MODULE_5__["default"], null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Demo__WEBPACK_IMPORTED_MODULE_6__["default"], null));
+  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Settings__WEBPACK_IMPORTED_MODULE_5__["default"], null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Demo__WEBPACK_IMPORTED_MODULE_6__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_gh_pages_Main__WEBPACK_IMPORTED_MODULE_10__["default"], null));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Object(baobab_react_higher_order__WEBPACK_IMPORTED_MODULE_8__["branch"])({
@@ -2023,6 +2029,70 @@ function (_Component) {
   name: 'name',
   values: 'values'
 }, StressCircles));
+
+/***/ }),
+
+/***/ "./editor/views/gh-pages/Header.jsx":
+/*!******************************************!*\
+  !*** ./editor/views/gh-pages/Header.jsx ***!
+  \******************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Header; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+function Header() {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", {
+    className: "header"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
+    className: "header__name"
+  }, "fluid"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
+    className: "header__description"
+  }, "A buttery smooth javascript animation library"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "header__links"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+    href: "https://github.com/immutabl3/fluid",
+    target: "_blank"
+  }, "View on GitHub"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+    href: "https://www.npmjs.com/package/@immutabl3/fluid",
+    target: "_blank"
+  }, "View on npm")));
+}
+;
+
+/***/ }),
+
+/***/ "./editor/views/gh-pages/Main.jsx":
+/*!****************************************!*\
+  !*** ./editor/views/gh-pages/Main.jsx ***!
+  \****************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Main; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+
+var readMeHtml = __webpack_require__(/*! ../../../public/README.html */ "./public/README.html");
+
+function Main() {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("main", {
+    className: "main"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "markdown-html language-javascript",
+    dangerouslySetInnerHTML: {
+      __html: readMeHtml
+    }
+  }));
+}
+;
 
 /***/ }),
 
@@ -36063,6 +36133,17 @@ module.exports = function(module) {
 	return module;
 };
 
+
+/***/ }),
+
+/***/ "./public/README.html":
+/*!****************************!*\
+  !*** ./public/README.html ***!
+  \****************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<h1 id=\"fluid\">fluid</h1>\n<p>A buttery-smooth, object-focused animation library. Heavily influenced by both <a href=\"http://dynamicsjs.com/\">dynammicsjs</a> \nand <a href=\"https://github.com/tweenjs/tween.js/\">tween.js</a>, <code>fluid</code> is fully-featued and has  a small (<code>13KB</code> minified, \n<code>4.29KB</code> gzipped) footprint.</p>\n<h2 id=\"installation\">Installation</h2>\n<p><code>$ npm i @immutabl3/fluid</code></p>\n<h2 id=\"usage\">Usage</h2>\n<p>Creating an animation:</p>\n<pre><code class=\"language-js\">import fluid from &#39;@immutabl3/fluid&#39;;\n\nfluid(\n  // starting object\n  { x: 0 }\n  // ending object\n  { x: 100 },\n  // config\n  { type: &#39;spring&#39;, duration: 500 }\n)\n  .on(&#39;update&#39;, ({ x }) =&gt; {\n    // x changes with every update\n  })\n  // start the animation\n  .start();</code></pre>\n<p>Setting up the <code>requestAnimationFrame</code> loop:</p>\n<pre><code class=\"language-js\">import fluid from &#39;@immutabl3/fluid&#39;;\nconst loop = () =&gt; {\n  fluid.tick();\n  requestAnimationFrame(loop);\n};\nrequestAnimationFrame(loop);</code></pre>\n<h2 id=\"options\">Options</h2>\n<h4 id=\"start-and-end\"><em><code>start</code></em> and <em><code>end</code></em></h4>\n<p>Any properties in the start and end objects will have their values tweened. Valid \nvalues are: numbers, rgba strings, hex strings, delta strings (e.g. &#39;+10&#39;), arrays \nand nested objects.</p>\n<h3 id=\"config\"><em><code>config</code></em></h3>\n<h4 id=\"type-default-spring-\"><em><code>type</code></em> <em>default: <em>&#39;spring&#39;</em></em></h4>\n<p>The type of animation to perform. Valid values are: spring, linear, bezier, \nbounce, easeIn, easeInOut, easeOut, gravity and forceWithGravity.</p>\n<h4 id=\"duration-default-1000\"><em><code>duration</code></em> <em>default: <em>1000</em></em></h4>\n<p>The duration of the animation in milliseconds.</p>\n<h4 id=\"delay-default-0\"><em><code>delay</code></em> <em>default: <em>0</em></em></h4>\n<p>The delay in milliseconds before the animation will start.</p>\n<h4 id=\"repeat-default-0\"><em><code>repeat</code></em> <em>default: <em>0</em></em></h4>\n<p>The number of times to repeat the animation. Use <code>Infinity</code> to repeat indefinitely.</p>\n<h4 id=\"yoyo-default-false\"><em><code>yoyo</code></em> <em>default: <em>false</em></em></h4>\n<p>Whether to animate back to origin after reaching the end of the animation. \nUse in conjunction with <code>repeat</code>.</p>\n<h4 id=\"friction-frequency-bounciness-elasticity-anticipationsize-anticipationstrength\"><em><code>friction</code> <code>frequency</code> <code>bounciness</code> <code>elasticity</code> <code>anticipationSize</code> <code>anticipationStrength</code></em></h4>\n<p>Configuration for the animation. See each animation for defaults for that animation, e.g.:</p>\n<pre><code class=\"language-js\">import fluid from &#39;@immutabl3/fluid&#39;;\nconsole.log(fluid.spring.defaults)\n// {\n//   frequency: 300,\n//   friction: 200,\n//   anticipationSize: 0,\n//   anticipationStrength: 0,\n// }</code></pre>\n<h2 id=\"methods\">Methods</h2>\n<h4 id=\"start\"><em><code>start</code></em></h4>\n<p>Starts the animation</p>\n<h4 id=\"stop\"><em><code>stop</code></em></h4>\n<p>Stops the animation</p>\n<h4 id=\"pause\"><em><code>pause</code></em></h4>\n<p>Pauses the animation so that it can be resumed at a later date</p>\n<h4 id=\"resume\"><em><code>resume</code></em></h4>\n<p>Resumes a paused animation</p>\n<h4 id=\"end\"><em><code>end</code></em></h4>\n<p>Ends an animation. Unlike <code>stop</code>, end will fast-forward the animation to \nits end state, forcibly updating the animation once before stopping.</p>\n<h4 id=\"yoyo\"><em><code>yoyo</code></em></h4>\n<p>Toggles on/off yoyoing. Takes a boolean as a parameter.</p>\n<h4 id=\"repeat\"><em><code>repeat</code></em></h4>\n<p>Sets the number of times the animation should repeat. Takes a number as a parameter. Use <code>Infinity</code> for an infinite loop.</p>\n<h4 id=\"state\"><em><code>state</code></em></h4>\n<p>A function that returns the current state of the animation.</p>\n<h4 id=\"debug\"><em><code>debug</code></em></h4>\n<p>Toggles debug mode to slow down animations. Takes a number (optional) to scale \nthe animation speed. Default <code>3</code>.</p>\n<h2 id=\"events\">Events</h2>\n<h4 id=\"start\"><em><code>start</code></em></h4>\n<p>Fired when the animation starts</p>\n<pre><code class=\"language-js\">animation.on(&#39;start&#39;, () =&gt; {});</code></pre>\n<h4 id=\"update\"><em><code>update</code></em></h4>\n<p>Fired on each tick of the animation, passing the updated object as the first parameter</p>\n<pre><code class=\"language-js\">animation.on(&#39;update&#39;, (obj) =&gt; {});</code></pre>\n<h4 id=\"complete\"><em><code>complete</code></em></h4>\n<p>Fired on completion of the animation, passing the updated object as the first parameter</p>\n<pre><code class=\"language-js\">animation.on(&#39;complete&#39;, (obj) =&gt; {});</code></pre>\n<h2 id=\"features\">Features</h2>\n<p><code>fluid</code> by default has a fixed tick rate. Drops in frames slow animations to prevent animation &quot;jumps&quot; to completion. This behavior can be overridden by supplying a time to the tick (via <code>requestAnimationFrame</code>)</p>\n<pre><code class=\"language-js\">const loop = time =&gt; {\n  fluid.tick(time);\n  requestAnimationFrame(loop);\n};\nrequestAnimationFrame(loop);</code></pre>\n<p><code>setTimeout</code> and <code>clearTimeout</code> methods are exposed to sync animations against the <code>requestAnimationFrame</code> loop. This all for consistent animation start times.</p>\n<pre><code class=\"language-js\">fluid.setTimeout(() =&gt; console.log(&#39;now&#39;), 1000);</code></pre>\n<p><code>fluid</code> does not have any DOM dependencies. Feel free to use in node!</p>\n<h2 id=\"license\">License</h2>\n<p>The MIT License (MIT)</p>\n<p>Copyright (c) 2018 Immutable, LLC</p>\n<p>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the &quot;Software&quot;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</p>\n<p>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</p>\n<p>THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>\n";
 
 /***/ }),
 
