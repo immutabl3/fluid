@@ -1,8 +1,8 @@
 # fluid
 
 A buttery-smooth, object-focused animation library. Heavily influenced by both [dynammicsjs](http://dynamicsjs.com/) 
-and [tween.js](https://github.com/tweenjs/tween.js/), `fluid` is fully-featued and has  a small (`13KB` minified, 
-`4.29KB` gzipped) footprint.
+and [tween.js](https://github.com/tweenjs/tween.js/), `fluid` is fully-featued and has a small (`13.2KB` minified, 
+`4.4KB` gzipped) footprint.
 
 ## Installation
 

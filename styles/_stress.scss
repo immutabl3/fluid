@@ -10,15 +10,14 @@
 	background: white;
 	overflow: hidden;
 
-	.circle {
-		margin: 0;
-		&:before {
-			content: attr(data-index);
-			display: block;
-			padding-top: 8px;
-			color: white;
-			text-align: center;
-		}
+	> div {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 4px;
+		height: 4px;
+		overflow: hidden;
+		background-color: #0070FF;
 	}
 
 	.button {

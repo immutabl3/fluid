@@ -31,8 +31,10 @@ const callAnimations = function() {
 };
 
 export default Object.assign(main, types, {
-	tick(delta = TICK_RATE) {
-		timer.time += delta;
+	tick(time) {
+		timer.time = time === undefined ?
+			timer.time + TICK_RATE :
+			time;
 		callTimeouts();
 		callAnimations();
 	},
@@ -47,7 +49,9 @@ export default Object.assign(main, types, {
 		timeouts.has(id) && timeouts.delete(id);
 	},
 
-	debug() {
-		console.log(`fluid: debug ${debug.toggle().slow === 3 ? 'enabled' : 'disabled'}`);
+	debug(scale) {
+		if (scale !== undefined && Number.isFinite(scale)) debug.scale = scale;
+
+		console.log(`fluid: debug ${debug.toggle().active ? 'enabled' : 'disabled'}`);
 	},
 });

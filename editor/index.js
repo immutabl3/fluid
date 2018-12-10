@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import signal from 'signal-js';
 import App from './views/App';
 import { root } from 'baobab-react/higher-order';
 import actions from './actions';
@@ -21,12 +22,13 @@ stats.domElement.style.left = '0';
 stats.domElement.style.top = '0';
 document.body.appendChild(stats.domElement);
 
-const update = () => {
+const update = time => {
 	requestAnimationFrame(update);
 	stats.begin();
-	fluid.tick();
+	fluid.tick(time);
+	signal.emit('tick');
 	stats.end();
 };
 
 console.log(store.get());
-update();
+requestAnimationFrame(update);

@@ -5,7 +5,7 @@ import options from '../config/options.json';
 
 class Name extends Component {
 	onChange = e => {
-		signal.trigger('select', e);
+		signal.emit('select', e);
 	}
 
 	renderOption = value => {

@@ -36,7 +36,7 @@ export default class Slider extends Component {
 		}, () => {
 			const name = this.props.property;
 			const value = Math.round(layerX / (WIDTH + 11) * (max - min) + min);
-			signal.trigger('setting', { name, value });
+			signal.emit('setting', { name, value });
 			
 			this.onControlDown({ pageX, pageY });
 		});
@@ -67,7 +67,7 @@ export default class Slider extends Component {
 		this.setState({ left }, () => {
 			const name = this.props.property;
 			const value = Math.round(left / WIDTH * (max - min) + min);
-			signal.trigger('setting', { name, value });
+			signal.emit('setting', { name, value });
 		});
 	}
 
