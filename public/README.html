@@ -1,0 +1,105 @@
+<h1 id="fluid">fluid</h1>
+<p>A buttery-smooth, object-focused animation library. Heavily influenced by both <a href="http://dynamicsjs.com/">dynammicsjs</a> 
+and <a href="https://github.com/tweenjs/tween.js/">tween.js</a>, <code>fluid</code> is fully-featued and has  a small (<code>13KB</code> minified, 
+<code>4.29KB</code> gzipped) footprint.</p>
+<h2 id="installation">Installation</h2>
+<p><code>$ npm i @immutabl3/fluid</code></p>
+<h2 id="usage">Usage</h2>
+<p>Creating an animation:</p>
+<pre><code class="language-js">import fluid from &#39;@immutabl3/fluid&#39;;
+
+fluid(
+  // starting object
+  { x: 0 }
+  // ending object
+  { x: 100 },
+  // config
+  { type: &#39;spring&#39;, duration: 500 }
+)
+  .on(&#39;update&#39;, ({ x }) =&gt; {
+    // x changes with every update
+  })
+  // start the animation
+  .start();</code></pre>
+<p>Setting up the <code>requestAnimationFrame</code> loop:</p>
+<pre><code class="language-js">import fluid from &#39;@immutabl3/fluid&#39;;
+const loop = () =&gt; {
+  fluid.tick();
+  requestAnimationFrame(loop);
+};
+requestAnimationFrame(loop);</code></pre>
+<h2 id="options">Options</h2>
+<h4 id="start-and-end"><em><code>start</code></em> and <em><code>end</code></em></h4>
+<p>Any properties in the start and end objects will have their values tweened. Valid 
+values are: numbers, rgba strings, hex strings, delta strings (e.g. &#39;+10&#39;), arrays 
+and nested objects.</p>
+<h3 id="config"><em><code>config</code></em></h3>
+<h4 id="type-default-spring-"><em><code>type</code></em> <em>default: <em>&#39;spring&#39;</em></em></h4>
+<p>The type of animation to perform. Valid values are: spring, linear, bezier, 
+bounce, easeIn, easeInOut, easeOut, gravity and forceWithGravity.</p>
+<h4 id="duration-default-1000"><em><code>duration</code></em> <em>default: <em>1000</em></em></h4>
+<p>The duration of the animation in milliseconds.</p>
+<h4 id="delay-default-0"><em><code>delay</code></em> <em>default: <em>0</em></em></h4>
+<p>The delay in milliseconds before the animation will start.</p>
+<h4 id="repeat-default-0"><em><code>repeat</code></em> <em>default: <em>0</em></em></h4>
+<p>The number of times to repeat the animation. Use <code>Infinity</code> to repeat indefinitely.</p>
+<h4 id="yoyo-default-false"><em><code>yoyo</code></em> <em>default: <em>false</em></em></h4>
+<p>Whether to animate back to origin after reaching the end of the animation. 
+Use in conjunction with <code>repeat</code>.</p>
+<h4 id="friction-frequency-bounciness-elasticity-anticipationsize-anticipationstrength"><em><code>friction</code> <code>frequency</code> <code>bounciness</code> <code>elasticity</code> <code>anticipationSize</code> <code>anticipationStrength</code></em></h4>
+<p>Configuration for the animation. See each animation for defaults for that animation, e.g.:</p>
+<pre><code class="language-js">import fluid from &#39;@immutabl3/fluid&#39;;
+console.log(fluid.spring.defaults)
+// {
+//   frequency: 300,
+//   friction: 200,
+//   anticipationSize: 0,
+//   anticipationStrength: 0,
+// }</code></pre>
+<h2 id="methods">Methods</h2>
+<h4 id="start"><em><code>start</code></em></h4>
+<p>Starts the animation</p>
+<h4 id="stop"><em><code>stop</code></em></h4>
+<p>Stops the animation</p>
+<h4 id="pause"><em><code>pause</code></em></h4>
+<p>Pauses the animation so that it can be resumed at a later date</p>
+<h4 id="resume"><em><code>resume</code></em></h4>
+<p>Resumes a paused animation</p>
+<h4 id="end"><em><code>end</code></em></h4>
+<p>Ends an animation. Unlike <code>stop</code>, end will fast-forward the animation to 
+its end state, forcibly updating the animation once before stopping.</p>
+<h4 id="yoyo"><em><code>yoyo</code></em></h4>
+<p>Toggles on/off yoyoing. Takes a boolean as a parameter.</p>
+<h4 id="repeat"><em><code>repeat</code></em></h4>
+<p>Sets the number of times the animation should repeat. Takes a number as a parameter. Use <code>Infinity</code> for an infinite loop.</p>
+<h4 id="state"><em><code>state</code></em></h4>
+<p>A function that returns the current state of the animation.</p>
+<h4 id="debug"><em><code>debug</code></em></h4>
+<p>Toggles debug mode to slow down animations. Takes a number (optional) to scale 
+the animation speed. Default <code>3</code>.</p>
+<h2 id="events">Events</h2>
+<h4 id="start"><em><code>start</code></em></h4>
+<p>Fired when the animation starts</p>
+<pre><code class="language-js">animation.on(&#39;start&#39;, () =&gt; {});</code></pre>
+<h4 id="update"><em><code>update</code></em></h4>
+<p>Fired on each tick of the animation, passing the updated object as the first parameter</p>
+<pre><code class="language-js">animation.on(&#39;update&#39;, (obj) =&gt; {});</code></pre>
+<h4 id="complete"><em><code>complete</code></em></h4>
+<p>Fired on completion of the animation, passing the updated object as the first parameter</p>
+<pre><code class="language-js">animation.on(&#39;complete&#39;, (obj) =&gt; {});</code></pre>
+<h2 id="features">Features</h2>
+<p><code>fluid</code> by default has a fixed tick rate. Drops in frames slow animations to prevent animation &quot;jumps&quot; to completion. This behavior can be overridden by supplying a time to the tick (via <code>requestAnimationFrame</code>)</p>
+<pre><code class="language-js">const loop = time =&gt; {
+  fluid.tick(time);
+  requestAnimationFrame(loop);
+};
+requestAnimationFrame(loop);</code></pre>
+<p><code>setTimeout</code> and <code>clearTimeout</code> methods are exposed to sync animations against the <code>requestAnimationFrame</code> loop. This all for consistent animation start times.</p>
+<pre><code class="language-js">fluid.setTimeout(() =&gt; console.log(&#39;now&#39;), 1000);</code></pre>
+<p><code>fluid</code> does not have any DOM dependencies. Feel free to use in node!</p>
+<h2 id="license">License</h2>
+<p>The MIT License (MIT)</p>
+<p>Copyright (c) 2018 Immutable, LLC</p>
+<p>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the &quot;Software&quot;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</p>
+<p>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</p>
+<p>THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>

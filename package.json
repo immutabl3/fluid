@@ -9,17 +9,18 @@
     "start": "http-server ./ -p 1331",
     "watch:css": "gulp watch",
     "watch:js": "webpack",
-    "build": "webpack --config deploy.config.js"
+    "build": "webpack --config deploy.config.js",
+    "convert": "gulp convert"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/immutabl3/fluid.git"
+    "url": "git+https://github.com/JonKelley88/fluid"
   },
   "keywords": [],
   "author": "Immutable, LLC",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/immutabl3/fluid/issues"
+    "url": "https://jonkelley88.github.io/fluid/"
   },
   "homepage": "https://github.com/immutabl3/fluid#readme",
   "devDependencies": {
@@ -42,10 +43,12 @@
     "gulp-cssnano": "^2.1.3",
     "gulp-env": "^0.4.0",
     "gulp-if": "^2.0.2",
+    "gulp-markdown": "^3.0.0",
     "gulp-rename": "^1.4.0",
     "gulp-sass": "^4.0.2",
     "gulp-sourcemaps": "^2.6.4",
     "gulp-util": "^3.0.8",
+    "html-loader": "^0.5.5",
     "http-server": "^0.11.1",
     "lodash": "^4.17.11",
     "node-sass": "^4.9.4",

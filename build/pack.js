@@ -19,7 +19,16 @@ module.exports = function pack({ dev, entry }) {
 				{
 					test: /\.(js|jsx)$/,
 					exclude: /node_modules/,
-					loader: 'babel-loader'
+					loader: 'babel-loader',
+				},
+				{
+					test: /\.(html)$/,
+					use: {
+						loader: 'html-loader',
+						options: {
+							attrs: [':data-src']
+						}
+					}
 				}
 			]
 		},
