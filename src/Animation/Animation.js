@@ -128,6 +128,17 @@ export default {
 				if (!startInterpolable || !endInterpolable) continue;
 				properties[key] = startInterpolable.interpolate(endInterpolable, y);
 			}
+		} else {
+			// ensure when done with the animation, we
+			// are at the end properties
+			properties = {};
+			const reversed = this[reversedSymbol];
+			const props = reversed ? this.startProps : this.endProps;
+			for (const key in props) {
+				const interpolable = props[key];
+				if (!interpolable) continue;
+				properties[key] = interpolable.value;
+			}
 		}
 
 		apply(this[propsSymbol], properties);
@@ -136,10 +147,6 @@ export default {
 		
 		if (done) {
 			this.playing = false;
-			// ensure when done with the animation, we
-			// are at the end properties
-			this[propsSymbol] = this.endProps;
-			this.emit('update', this[propsSymbol]);
 			this.emit('complete', this[propsSymbol]);
 		}
 
