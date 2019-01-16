@@ -42,9 +42,9 @@ export default Object.assign(function bezier(options = {}) {
 			return Bs.push(B2);
 		};
 		for (const key in points) {
-			const num = parseInt(key, 10);
-			if (num >= points.length - 1) break;
-			fn1(points[num], points[num + 1]);
+			const index = parseInt(key, 10);
+			if (index >= points.length - 1) break;
+			fn1(points[index], points[index + 1]);
 		}
 		return Bs;
 	}());
