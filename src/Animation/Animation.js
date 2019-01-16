@@ -136,6 +136,10 @@ export default {
 		
 		if (done) {
 			this.playing = false;
+			// ensure when done with the animation, we
+			// are at the end properties
+			this[propsSymbol] = this.endProps;
+			this.emit('update', this[propsSymbol]);
 			this.emit('complete', this[propsSymbol]);
 		}
 
