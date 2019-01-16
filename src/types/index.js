@@ -1,4 +1,5 @@
 import bezier from './bezier';
+import cubicBezier from './cubicBezier';
 import bounce from './bounce';
 import easeIn from './easeIn';
 import easeInOut from './easeInOut';
@@ -10,6 +11,7 @@ import linear from './linear';
 
 export default {
 	bezier,
+	cubicBezier,
 	bounce,
 	easeIn,
 	easeInOut,
