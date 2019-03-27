@@ -49,6 +49,11 @@ export default Object.assign(main, types, {
 		timeouts.has(id) && timeouts.delete(id);
 	},
 
+	clear() {
+		animations.clear();
+		timeouts.clear();
+	},
+
 	debug(scale) {
 		if (scale !== undefined && Number.isFinite(scale)) debug.scale = scale;
 
